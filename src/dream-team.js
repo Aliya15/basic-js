@@ -6,10 +6,10 @@ module.exports = function createDreamTeam(namesOfMembers) {
     }
     let firstLetters = namesOfMembers.map((item) => {
         if (typeof item === "string") {
-            return item.trim()[0]
+            return item.trim()[0].toUpperCase()
         }
         return 0
     }).filter((item) => typeof item === "string");
     firstLetters.sort();
-    return firstLetters.join("").toUpperCase()
+    return firstLetters.join("")
 }
