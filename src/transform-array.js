@@ -1,8 +1,19 @@
-const CustomError = require("../extensions/custom-error");
+import { NotImplementedError } from '../extensions/index.js';
 
-const controls = ["--discard-next", "--discard-prev", "--double-next", "--double-prev", 'discard'];
-
-module.exports = function transform(initialArray) {
+/**
+ * Create transformed array based on the control sequences that original
+ * array contains
+ * 
+ * @param {Array} arr initial array
+ * @returns {Array} transformed array
+ * 
+ * @example
+ * 
+ * transform([1, 2, 3, '--double-next', 4, 5]) => [1, 2, 3, 4, 4, 5]
+ * transform([1, 2, 3, '--discard-prev', 4, 5]) => [1, 2, 4, 5]
+ * 
+ */
+export default function transform(initialArray) {
   if (!Array.isArray(initialArray)) {
     throw new Error();
   }
@@ -29,4 +40,4 @@ module.exports = function transform(initialArray) {
     }
   }
   return arr.filter((item) => !controls.find(control => control === item))
-};
+}

@@ -1,6 +1,10 @@
-const CustomError = require("../extensions/custom-error");
+import { NotImplementedError } from '../extensions/index.js';
 
-const chainMaker = {
+/**
+ * Implement chainMaker object according to task description
+ * 
+ */
+export default {
   arr: [],
   getLength() {
     return this.arr.length;
@@ -40,5 +44,3 @@ const chainMaker = {
     return result
   }
 };
-
-module.exports = chainMaker;
