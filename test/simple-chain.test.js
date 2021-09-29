@@ -15,6 +15,7 @@ describe('Make chain!', () => {
             expect(type).to.be.equal('object');
         });
     });
+    
 
     describe('base requirements', () => {
         it.optional('chaining works!', () => {
